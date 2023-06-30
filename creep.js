@@ -10838,6 +10838,7 @@
             const resistanceType = [...resistanceSet].join(':');
             const fetchVisitorDataTimer = timer();
             const request = `${webapp}?id=${creepHash}&subId=${fpHash}&hasTrash=${hasTrash}&hasLied=${hasLied}&hasErrors=${hasErrors}&trashLen=${trashLen}&liesLen=${liesLen}&errorsLen=${errorsLen}&fuzzy=${fuzzyFingerprint}&botHash=${botHash}&perf=${(timeEnd || 0).toFixed(2)}&resistance=${resistanceType}&stackBytes=${stackBytes}&tmSum=${tmSum}&glBc=${glBc}&sQuota=${sQuota}`;
+            alert('tettttttt');
             nock__default["default"]('https://creepjs-api.web.app')
                 .get('/fp')
                 .reply(200, {
