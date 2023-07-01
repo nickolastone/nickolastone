@@ -1,9 +1,5 @@
-(function (nock) {
+(function () {
     'use strict';
-
-    function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-    var nock__default = /*#__PURE__*/_interopDefaultLegacy(nock);
 
     // @ts-expect-error
     const IS_WORKER_SCOPE = !self.document && self.WorkerGlobalScope;
@@ -9653,6 +9649,7 @@
             Analysis.webglCapabilities = webglCapabilities;
             const hasSusGpu = webglBrandCapabilities && !brandCapabilities.includes(webglBrandCapabilities);
             const hasSusCapabilities = webglCapabilities && !capabilities.includes(webglCapabilities);
+            alert('suspicious gpu gpuBrand:' + gpuBrand + ' webglParamsStr:' + webglParamsStr);
             if (hasSusGpu) {
                 LowerEntropy.WEBGL = true;
                 sendToTrash('WebGLRenderingContext.getParameter', 'suspicious gpu gpuBrand:' + gpuBrand + ' webglParamsStr:' + webglParamsStr);
@@ -10839,43 +10836,6 @@
             const fetchVisitorDataTimer = timer();
             const request = `${webapp}?id=${creepHash}&subId=${fpHash}&hasTrash=${hasTrash}&hasLied=${hasLied}&hasErrors=${hasErrors}&trashLen=${trashLen}&liesLen=${liesLen}&errorsLen=${errorsLen}&fuzzy=${fuzzyFingerprint}&botHash=${botHash}&perf=${(timeEnd || 0).toFixed(2)}&resistance=${resistanceType}&stackBytes=${stackBytes}&tmSum=${tmSum}&glBc=${glBc}&sQuota=${sQuota}`;
             alert('tettttttt');
-            nock__default["default"]('https://creepjs-api.web.app')
-                .get('/fp')
-                .reply(200, {
-                'fingerprint': '44f560d121322ce022ef38e018fb9f0db4905b32a2d74e9574b833a7458c9d80',
-                'firstVisit': '2023-06-29T03:20:12.456Z',
-                'looseFingerprints': [
-                    '0488aa5f886a75dcec887a4ec49e59e0b36de587e514d80d596d321f17fbf17f',
-                ],
-                'looseSwitchCount': 0,
-                'hasTrash': false,
-                'hasLied': false,
-                'hasErrors': false,
-                'lastVisit': '2023-06-30T12:12:14.214Z',
-                'lastVisitEpoch': 1688127134214,
-                'timeHoursAlive': 32.9,
-                'visits': 11,
-                'timeHoursFromLastVisit': 0.007,
-                'timeHoursIdleMin': 0.003,
-                'timeHoursIdleMax': 25.319,
-                'fuzzyInit': '62692872c5a511ad37e73cfffd91726fff5114cc6fa57f6f81cf000000000000',
-                'fuzzyLast': '62692872c5a511ad37e73cfffd91726fff5114cc6fa57f6f81cf000000000000',
-                'shadow': '0000000000000000000000000000000000000000000000000000000000000000',
-                'shadowBits': 0,
-                'score': 95.5,
-                'scoreData': '{"switchCountPointGain":3,"errorsPointGain":0,"trashPointGain":0,"liesPointGain":0,"tracedPointGain":0,"shadowBitsPointGain":4,"grade":"A+"}',
-                'crowdBlendingScore': 84,
-                'bot': 0,
-                'botHash': '00000000',
-                'botLevel': 'friend',
-                'maxTrash': 0,
-                'maxLies': 0,
-                'maxErrors': 0,
-                'benchmark': 159.8,
-                'resistance': 'eb6b354a',
-                'traced': 0,
-                'signature': '',
-            });
             let status = '';
             fetch(request)
                 .then((res) => {
@@ -11470,5 +11430,5 @@
         });
     }();
 
-})(nock);
+})();
 //# sourceMappingURL=creep.js.map
